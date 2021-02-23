@@ -40,6 +40,7 @@ class WebWhatsappBot:
 
 
 class Telegram:
+    pyautogui.click(73, 49)
     """This bot would send messages on telegram desktop."""
     def __init__(self, phone_numbers, message):
         """This function would initialize the variables."""
@@ -50,4 +51,13 @@ class Telegram:
             pyautogui.sleep(1)
             pyautogui.typewrite(phone_number)
             pyautogui.hotkey("enter")
-            pyautogui.typewrite()
+            if isinstance(message, str):
+                pyautogui.typewrite(message)
+
+            elif isinstance(message, list):
+                for line in message:
+                    pyautogui.typewrite(line)
+                    pyautogui.hotkey('alt', 'enter')
+                pyautogui.hotkey("backspace")
+
+            pyautogui.hotkey("enter")

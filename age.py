@@ -11,3 +11,4 @@ today_date = date.today()
 age = today_date - birth_date
 
 print(age.days)
+a = input()

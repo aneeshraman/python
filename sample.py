@@ -1,3 +1,3 @@
 from send_message import *
 
-Bot = Telegram(["Aparna Raman"], "Mami")
+Bot = Telegram(["Raja Raman"], "Sorry, kitto")

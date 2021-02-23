@@ -1,11 +1,11 @@
-def timeInterval(startHour, startMinute, startSecond, endHour, endMinute, endSecond):
-    hourInterval = endHour - startHour
-    minuteInterval = endMinute - startMinute
-    secondInterval = endSecond - startSecond
-    hourInterval *= 3600
-    minuteInterval *= 60
-    secondInterval = secondInterval
-    return "Total time interval is " + str(sum([secondInterval, minuteInterval, secondInterval]))
+def time_interval(start_hour, start_minute, start_second, end_hour, end_minute, end_second):
+    hour_interval = end_hour - start_hour
+    minute_interval = end_minute - start_minute
+    second_interval = end_second - start_second
+    hour_interval *= 3600
+    minute_interval *= 60
+    second_interval = second_interval
+    return "Total time interval is " + str(sum([second_interval, minute_interval, second_interval]))
 
 
 startHour, startMinute, startSecond = input("Enter start time: ").split(":")
@@ -29,4 +29,4 @@ if startMinute > 60 or endMinute > 60:
 if startSecond > 60 or endSecond > 60:
     raise Exception("Wrong input, second cannot be greater than 60")
 
-print(timeInterval(startHour, startMinute, startSecond, endHour, endMinute, endSecond))
+print(time_interval(startHour, startMinute, startSecond, endHour, endMinute, endSecond))

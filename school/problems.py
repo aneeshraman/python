@@ -17,13 +17,13 @@ def perimeter(side_a=None, side_b=None, side_c=None, two_equal_sides=None, unequ
     elif three_equal_sides is not None:
         type_ = "equilateral"
 
-    if type_ is "scalene":
+    if type_ == "scalene":
         return f"Perimeter of the triangle is: {side_a + side_b + side_c}"
 
-    elif type_ is "isosceles":
+    elif type_ == "isosceles":
         return f"Perimeter of the triangle is: {(2 * two_equal_sides) + unequal_side}"
 
-    elif type_ is "equilateral":
+    elif type_ == "equilateral":
         return f"Perimeter of the triangle is: {3 * three_equal_sides}"
 
     if type_ is None:
@@ -72,4 +72,36 @@ def compound_interest(principle, rate, time):
         return f"The compound interest is {principle * (1 + rate / 100) ** time}"
 
     except ValueError:
-        return Exception("Invalid input.")
+        return Exception("Invalid input")
+
+
+# Program to accept an amount and calculate the number of notes/coins required of different denominations.
+# Like 2000, 500, 200, 100, 50, 10, 5, 2, 1.
+def denominations():
+    amount = int(input("Enter an amount: "))
+    rupee_types = [2000, 500, 200, 100, 50, 10, 5, 2, 1]
+    no_of_notes_per_type = []
+
+    if not isinstance(amount, int) and not isinstance(amount, float):
+        return Exception("Wrong input")
+
+    no_of_notes_per_type.append(amount // rupee_types[0])
+    left = amount % rupee_types[0]
+    notes = amount // rupee_types[0]
+
+    rupee_types.pop(0)
+
+    for rupee_type in rupee_types:
+        amount = left
+        notes = amount // rupee_type
+        no_of_notes_per_type.append(notes)
+        left = amount % rupee_type
+
+    rupee_types.insert(0, 2000)
+    for i in range(len(no_of_notes_per_type)):
+        print(f"Number of ₹{rupee_types[i]} notes is: {no_of_notes_per_type[i]}")
+
+
+# e.g. 34786
+# 2000 -
+denominations()
